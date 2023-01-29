@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
           "x": qn.docs[i],
           "img": qn.docs[i]["img"],
           "Shop_Name": qn.docs[i]["shopName"],
-          // "product_image": qn.docs[i]["img"],
+          "rating": qn.docs[i]["rating"],
           "Shop_Address": qn.docs[i]["address"],
           // "product_price": qn.docs[i]["discountPricing"],
         });
@@ -50,75 +50,77 @@ class _HomeState extends State<Home> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Container(
-            width: double.infinity,
-            height: 200,
-            color: Color.fromARGB(255, 222, 216, 216),
-            child: Stack(
-              children: [
-                Image.asset(
-                  'images/cut.jpg',
-                  color: Colors.grey.withOpacity(0.4),
-                  colorBlendMode: BlendMode.modulate,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 80,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 1),
-                      child: Text(
-                        'Find and book best services',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
+        SingleChildScrollView(
+          child: Container(
+              width: double.infinity,
+              height: 200,
+              color: Color.fromARGB(255, 222, 216, 216),
+              child: Stack(
+                children: [
+                  Image.asset(
+                    'images/cut.jpg',
+                    color: Colors.grey.withOpacity(0.4),
+                    colorBlendMode: BlendMode.modulate,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 80,
                       ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15, right: 15),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Search()));
-                        },
-                        child: Container(
-                          width: double.infinity,
-                          height: 45,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Color.fromARGB(225, 245, 153, 146)),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Icon(
-                                Icons.search,
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Text(
-                                "Search salon services...",
-                                style: TextStyle(),
-                              )
-                            ],
+                      Padding(
+                        padding: const EdgeInsets.only(left: 1),
+                        child: Text(
+                          'Find and book best services',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15, right: 15),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Search()));
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            height: 45,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Color.fromARGB(225, 245, 153, 146)),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Icon(
+                                  Icons.search,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text(
+                                  "Search salon services...",
+                                  style: TextStyle(),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            )),
+                    ],
+                  ),
+                ],
+              )),
+        ),
         SizedBox(
           height: 20,
         ),
@@ -218,35 +220,19 @@ class _HomeState extends State<Home> {
                 return Column(
                   children: [
                     Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) =>
-                          //             cement_product_page(
-                          //                 _ProductCement[index]
-                          //                     ["x"])));
-                        },
-                        child: Container(
-                            child: CachedNetworkImage(
-                          imageUrl: _Shops[index]["img"],
-                        )),
-                      ),
-                    ),
+                        child: Best_Salon(
+                            address: _Shops[index]["Shop_Address"],
+                            image: _Shops[index]["img"],
+                            rating: _Shops[index]["rating"].toString(),
+                            shopname: _Shops[index]["Shop_Name"])),
                     // if (_ProductCement[index]["category"] == "cement")
-                    Column(
-                      children: [
-                        Text(_Shops[index]["Shop_Name"]),
-                        Text(_Shops[index]["Shop_Address"]),
-                      ],
-                    )
 
                     // Text("working"),
                   ],
                 );
               })),
         ),
+
         // SizedBox(
         //   height: 30,
         // ),
