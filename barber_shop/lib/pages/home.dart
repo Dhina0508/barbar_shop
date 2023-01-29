@@ -1,4 +1,8 @@
-import 'package:barber_shop/search/search.dart';
+import 'package:barber_shop/best%20salon/full%20details.dart';
+import 'package:barber_shop/bottomnavigation/search.dart';
+import 'package:barber_shop/helping%20widgets/best_salon.dart';
+import 'package:barber_shop/helping%20widgets/popular_category.dart';
+import 'package:barber_shop/helping%20widgets/popular_category_image.dart';
 import 'package:flutter/material.dart';
 //import 'package:http/http.dart' as http;
 
@@ -113,153 +117,45 @@ class _HomeState extends State<Home> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    Container(
-                      width: 55,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Color.fromARGB(255, 237, 148, 141),
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.menu),
-                            Text(
-                              "All",
-                              style: TextStyle(fontSize: 13),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                    PopularCategory(
+                        colour: Color.fromARGB(255, 237, 148, 141),
+                        icon: Icons.menu,
+                        name: "All"),
                     SizedBox(
                       width: 20,
                     ),
-                    Container(
-                      width: 55,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Color.fromARGB(255, 108, 203, 190),
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "images/short-male-hair-shape.png",
-                              width: 35,
-                              height: 30,
-                            ),
-                            Text(
-                              "Hair",
-                              style: TextStyle(fontSize: 13),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                    PopularCategoryImage(
+                        colour: Color.fromARGB(255, 108, 203, 190),
+                        image: "images/short-male-hair-shape.png",
+                        name: "Hair"),
                     SizedBox(
                       width: 20,
                     ),
-                    Container(
-                      width: 55,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Color.fromARGB(255, 219, 195, 99),
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.face_sharp),
-                            Text(
-                              "Face",
-                              style: TextStyle(fontSize: 13),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                    PopularCategory(
+                        colour: Color.fromARGB(255, 219, 195, 99),
+                        icon: Icons.face_sharp,
+                        name: "Face"),
                     SizedBox(
                       width: 20,
                     ),
-                    Container(
-                      width: 55,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Color.fromARGB(255, 181, 115, 206),
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.back_hand_outlined),
-                            Text(
-                              "Nails",
-                              style: TextStyle(fontSize: 13),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                    PopularCategory(
+                        colour: Color.fromARGB(255, 181, 115, 206),
+                        icon: Icons.back_hand_outlined,
+                        name: "Nails"),
                     SizedBox(
                       width: 20,
                     ),
-                    Container(
-                      width: 55,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Color.fromARGB(255, 158, 226, 167),
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "images/facial.png",
-                              width: 25,
-                              height: 25,
-                            ),
-                            Text(
-                              "Massage",
-                              style: TextStyle(fontSize: 13),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                    PopularCategoryImage(
+                        colour: Color.fromARGB(255, 158, 226, 167),
+                        image: "images/facial.png",
+                        name: "Massage"),
                     SizedBox(
                       width: 20,
                     ),
-                    Container(
-                      width: 55,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Color.fromARGB(255, 228, 134, 191),
-                      ),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "images/hair-dye.png",
-                              width: 30,
-                              height: 30,
-                            ),
-                            Text(
-                              "Colour",
-                              style: TextStyle(fontSize: 13),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                    PopularCategoryImage(
+                        colour: Color.fromARGB(255, 228, 134, 191),
+                        image: "images/hair-dye.png",
+                        name: "Colour"),
                     SizedBox(
                       width: 30,
                     )
@@ -291,270 +187,32 @@ class _HomeState extends State<Home> {
                   SizedBox(
                     width: 15,
                   ),
-                  Stack(children: [
-                    Container(
-                      width: 250,
-                      height: 200,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          "images/img.jpeg",
-                          width: 250,
-                          height: 200,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 130,
-                          ),
-                          Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Color.fromARGB(207, 222, 139, 133)),
-                              width: 250,
-                              height: 120,
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Green Trends",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Icon(
-                                          Icons.favorite_border,
-                                          color: Colors.white,
-                                        )
-                                      ],
-                                    ),
-                                    Text(
-                                      "4th Avenue Shanthi Colony Main Road Shanthi Colony, Anna Nagar, Chennai",
-                                      style: TextStyle(
-                                          fontSize: 14, color: Colors.white),
-                                    ),
-                                    Divider(
-                                        thickness: 1,
-                                        endIndent: 2,
-                                        indent: 2,
-                                        height: 1,
-                                        color: Colors.white),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.yellow,
-                                        ),
-                                        Text(
-                                          "4.6 (100 reviews)",
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.white),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              )),
-                        ],
-                      ),
-                    )
-                  ]),
+                  Best_Salon(
+                    address:
+                        "4th Avenue Shanthi Colony Main Road Shanthi Colony, Anna Nagar, Chennai",
+                    image: "images/img.jpeg",
+                    rating: "4.6 (100 reviews)",
+                    shopname: "Green Trends",
+                  ),
                   SizedBox(
                     width: 15,
                   ),
-                  Stack(children: [
-                    Container(
-                      width: 250,
-                      height: 200,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          "images/naturals.jpeg",
-                          width: 250,
-                          height: 200,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 130,
-                          ),
-                          Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Color.fromARGB(207, 222, 139, 133)),
-                              width: 250,
-                              height: 120,
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Naturals",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Icon(
-                                          Icons.favorite_border,
-                                          color: Colors.white,
-                                        )
-                                      ],
-                                    ),
-                                    Text(
-                                      "29, Dr Nair Rd,Pondy Bazaar,T. Nagar,Chennai",
-                                      style: TextStyle(
-                                          fontSize: 14, color: Colors.white),
-                                    ),
-                                    Divider(
-                                        thickness: 1,
-                                        endIndent: 2,
-                                        indent: 2,
-                                        height: 1,
-                                        color: Colors.white),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.yellow,
-                                        ),
-                                        Text(
-                                          "4.2 (87 reviews)",
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.white),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              )),
-                        ],
-                      ),
-                    )
-                  ]),
+                  Best_Salon(
+                    address: "29, Dr Nair Rd,Pondy Bazaar,T. Nagar,Chennai",
+                    image: "images/naturals.jpeg",
+                    rating: "4.2 (87 reviews)",
+                    shopname: "Naturals",
+                  ),
                   SizedBox(
                     width: 15,
                   ),
-                  Stack(children: [
-                    Container(
-                      width: 250,
-                      height: 200,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          "images/tg.png",
-                          width: 250,
-                          height: 200,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 130,
-                          ),
-                          Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Color.fromARGB(207, 222, 139, 133)),
-                              width: 250,
-                              height: 120,
-                              child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          "Toni and Guy",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        Icon(
-                                          Icons.favorite_border,
-                                          color: Colors.white,
-                                        )
-                                      ],
-                                    ),
-                                    Text(
-                                      "1st Avenue,Old No 13/1&3, 1st Floor, Ashok Nagar, Chennai",
-                                      style: TextStyle(
-                                          fontSize: 14, color: Colors.white),
-                                    ),
-                                    Divider(
-                                        thickness: 1,
-                                        endIndent: 2,
-                                        indent: 2,
-                                        height: 1,
-                                        color: Colors.white),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.star,
-                                          color: Colors.yellow,
-                                        ),
-                                        Text(
-                                          "4.2 (30 reviews)",
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.white),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              )),
-                        ],
-                      ),
-                    )
-                  ]),
+                  Best_Salon(
+                    address:
+                        "1st Avenue,Old No 13/1&3, 1st Floor, Ashok Nagar, Chennai",
+                    image: "images/tg.png",
+                    rating: "4.2 (30 reviews)",
+                    shopname: "Toni and Guy",
+                  ),
                   SizedBox(
                     width: 20,
                   )

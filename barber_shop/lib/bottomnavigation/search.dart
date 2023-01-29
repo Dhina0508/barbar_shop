@@ -11,11 +11,7 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Text(
-        "To be implemented,",
-        style: TextStyle(fontSize: 20),
-      )),
+      body: Center(child: Text("Profile")),
     );
   }
 }
